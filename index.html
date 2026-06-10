@@ -24,17 +24,7 @@
 <meta name="twitter:image" content="https://bisii.co.jp/mizubunshi.png">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<script>
-function googleTranslateElementInit(){
-  new google.translate.TranslateElement({pageLanguage:'ja',includedLanguages:'en,zh-CN,th',autoDisplay:false},'_gt');
-}
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<style>
-.goog-te-banner-frame,.skiptranslate{display:none!important}
-body{top:0!important}
-#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
-</style>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -72,8 +62,7 @@ nav.sh{box-shadow:0 4px 20px rgba(0,0,0,.07)}
 .nlinks a:hover{color:var(--sage)}
 .nright{display:flex;align-items:center;gap:8px;margin-left:16px}
 .lw{display:flex;gap:4px}
-.lb{font-size:10px;font-family:var(--sen);color:var(--stone);background:transparent;border:1px solid var(--rule);padding:3px 7px;border-radius:3px;transition:all .2s}
-.lb:hover,.lb.act{color:var(--sage);border-color:var(--sage)}
+
 .btn-nav{background:var(--sage);color:#fff;border:none;padding:9px 18px;border-radius:4px;font-size:12px;font-weight:600;white-space:nowrap;transition:background .2s}
 .btn-nav:hover{background:var(--sage-mid)}
 
@@ -315,9 +304,6 @@ h2 em{font-style:normal;color:var(--sage);font-weight:400}
 .cf-card{background:#fff;border-radius:12px;border:1px solid var(--rule);padding:32px 28px;box-shadow:0 4px 24px rgba(0,0,0,.06)}
 .cf-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
 .cf-title{font-family:var(--fja);font-size:15px;font-weight:400;color:var(--sage)}
-.cf-langs{display:flex;gap:3px}
-.cf-lb{font-size:10px;font-family:var(--sen);color:var(--stone);background:transparent;border:1px solid var(--rule);padding:3px 8px;border-radius:3px;cursor:pointer;transition:all .2s}
-.cf-lb:hover,.cf-lb.act{color:var(--sage);border-color:var(--sage)}
 .cf-group{margin-bottom:14px}
 .cf-label{display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:5px}
 .cf-req{color:var(--sage);font-size:10px;margin-left:3px}
@@ -397,23 +383,114 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
   .med-body{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
+  /* ── NAV ── */
   .nlinks{display:none}
-  h1{font-size:28px}
+
+  /* ── TYPOGRAPHY ── */
+  h1{font-size:clamp(24px,6.5vw,32px)}
+  h2{font-size:clamp(20px,5.5vw,28px)}
+  .sh2{margin-bottom:28px}
+  .sdesc{font-size:13px}
+
+  /* ── SECTION PADDING ── */
+  section{padding:52px 20px!important}
+  #autonomic,#science{padding:52px 20px!important}
+  #cases{padding:52px 20px!important}
+
+  /* ── HERO ── */
+  .hero-txt{padding:88px 20px 36px}
+  .hero-imgs{height:62vw;min-height:240px}
+  .hero-sub{font-size:13px}
+  .ctas{gap:10px}
+  .bp,.bg{font-size:13px;padding:12px 22px}
+  .kw-line{font-size:11px;padding:6px 12px;margin-bottom:12px}
+
+  /* ── TRUST BAR ── */
+  .trust-row{gap:16px;padding:12px 16px}
+  .ti{font-size:10px}
+
+  /* ── GRIDS: CSS-defined ── */
   .pain-grid{grid-template-columns:1fr}
+  .pain-photos{grid-template-columns:1fr!important}
   .ls-row,.ls-row:nth-child(even){grid-template-columns:1fr}
-  .ls-img{min-height:260px}
+  .ls-img{min-height:220px}
+  .ls-txt{padding:32px 24px!important}
   .ev-layout{grid-template-columns:1fr}
   .ath-grid{grid-template-columns:1fr}
   .tgrid{grid-template-columns:1fr}
   .pgrid{grid-template-columns:1fr}
   .wgrid{grid-template-columns:1fr}
   .med{grid-template-columns:1fr}
-  .med-img{height:220px}
+  .med-img{height:200px}
   .med-body{grid-template-columns:1fr}
   .mat-grid{grid-template-columns:repeat(2,1fr)}
   .ft{flex-direction:column}
   .hotel-row{grid-template-columns:1fr}
+
+  /* ── GRIDS: inline-styled (class added via JS below) ── */
+  .vid-grid{grid-template-columns:1fr!important;gap:16px!important}
+  .step-grid{grid-template-columns:1fr!important;gap:16px!important}
+  .roi-grid{grid-template-columns:1fr!important;gap:12px!important}
+  .rental-grid{grid-template-columns:1fr!important;gap:20px!important}
+  .cases-grid{grid-template-columns:1fr!important;gap:20px!important}
+  .ev2-grid{grid-template-columns:1fr!important}
+
+  /* ── STEP FLOW: hide arrows on mobile ── */
+  .step-grid [style*="position:absolute"]{display:none!important}
+
+  /* ── VIDEO SECTION inner padding ── */
+  #vid-section{padding:52px 20px!important}
+
+  /* ── PRODUCTS inner box ── */
+  .cf-card{padding:24px 16px}
+
+  /* ── LIFESTYLE TEXT ── */
+  .ls-txt h3{font-size:clamp(18px,4.5vw,22px)}
+
+  /* ── ATHLETE SECTION ── */
+  .ath-img{height:200px}
+
+  /* ── TESTIMONIALS ── */
+  .tc{padding:20px 18px}
+
+  /* ── PRODUCT CARD ── */
+  .pc{padding:20px 16px}
+
+  /* ── WHY SECTION ── */
+  .wi{padding:18px 14px}
+
+  /* ── FAQ ── */
+  .fq{padding:16px 14px}
+
+  /* ── FOOTER ── */
+  .ft{gap:28px}
+  .flinks{flex-direction:column;gap:8px}
+
+  /* ── FAB ── */
+  .fab{bottom:18px;right:18px;width:48px;height:48px}
+
+  /* ── INNER BOXES & CARDS ── */
+  .inner-box{padding:24px 18px!important;margin-bottom:40px!important}
+  .inner-card{padding:24px 20px!important}
+  .ev-stat{padding:22px!important}
+  .hotel-row{padding:20px 18px}
 }
+
+@media(max-width:480px){
+  h1{font-size:clamp(22px,6vw,28px)}
+  .hero-txt{padding:76px 16px 28px}
+  .hero-imgs{height:70vw;min-height:200px}
+  section{padding:40px 16px!important}
+  #autonomic,#science,#cases{padding:40px 16px!important}
+  .ls-txt{padding:24px 16px!important}
+  .mat-grid{grid-template-columns:repeat(2,1fr)}
+  .pgrid{grid-template-columns:1fr}
+  .bp,.bg{width:100%;text-align:center;display:block}
+  .ctas{flex-direction:column}
+  .step-grid>div{padding:16px 0}
+  .roi-grid>div{padding:14px 10px!important}
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -492,12 +569,6 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
       <li><a href="#cta" style="color:var(--sage);font-weight:600">お問い合わせ</a></li>
     </ul>
     <div class="nright">
-      <div class="lw">
-        <button class="lb act" onclick="setLang(this)">JP</button>
-        <button class="lb" onclick="setLang(this)">EN</button>
-        <button class="lb" onclick="setLang(this)">ZH</button>
-        <button class="lb" onclick="setLang(this)">TH</button>
-      </div>
       <button class="btn-nav" onclick="sc('cta')">お問い合わせ</button>
     </div>
   </div>
@@ -762,14 +833,14 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
 
 
 <!-- VIDEO SECTION -->
-<section style="background:var(--ink);padding:80px 28px">
+<section id="vid-section" style="background:var(--ink);padding:80px 28px">
   <div style="max-width:1060px;margin:0 auto">
     <div style="text-align:center;margin-bottom:52px">
       <span style="font-family:var(--sen);font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:12px">Watch</span>
       <h2 style="font-family:var(--fja);font-size:clamp(22px,3vw,32px);color:#fff;font-weight:400">動画で見る、<em style="font-family:var(--fen);font-style:italic;color:var(--gold)">DENBA Health</em></h2>
       <div style="width:36px;height:2px;background:var(--gold);margin:16px auto 0"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+    <div class="vid-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
       <div onclick="this.innerHTML='<iframe src='https://www.youtube.com/embed/HsHPwWXUq00?autoplay=1' frameborder='0' allow='autoplay;encrypted-media' allowfullscreen style='position:absolute;top:0;left:0;width:100%;height:100%'></iframe>';" style="position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;cursor:pointer;background:#000">
         <img src="https://img.youtube.com/vi/HsHPwWXUq00/hqdefault.jpg" alt="DENBA Health 動画" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block">
         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(255,0,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .2s">
@@ -1143,7 +1214,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
         <div style="border-radius:10px;overflow:hidden;border:1px solid var(--rule);margin-bottom:10px">
           <img loading="lazy" src="ichigo.png" alt="いちごの鮮度比較：一般の冷蔵庫 vs DENBA" style="width:100%;display:block;max-height:300px;object-fit:cover">
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px;color:var(--stone);line-height:1.7;margin-bottom:8px">
+        <div class="ev2-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px;color:var(--stone);line-height:1.7;margin-bottom:8px">
           <div><strong style="color:var(--stone);display:block;margin-bottom:3px">❌ 一般の冷蔵庫</strong>白カビ発生・変色・水分蒸散。同条件・同日程でも鮮度・見た目が大きく劣化します。</div>
           <div><strong style="color:var(--sage);display:block;margin-bottom:3px">✓ DENBA</strong>水分子の常時振動が酸化・菌の繁殖を抑制。収穫直後のような鮮やかな赤・みずみずしさを維持。</div>
         </div>
@@ -1155,7 +1226,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
         <div style="border-radius:10px;overflow:hidden;border:1px solid var(--rule);margin-bottom:10px">
           <img loading="lazy" src="beef.png" alt="タスマニアビーフの鮮度比較：一般の冷蔵庫 vs DENBA" style="width:100%;display:block;max-height:300px;object-fit:cover">
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px;color:var(--stone);line-height:1.7;margin-bottom:8px">
+        <div class="ev2-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px;color:var(--stone);line-height:1.7;margin-bottom:8px">
           <div><strong style="color:var(--stone);display:block;margin-bottom:3px">❌ 一般の冷蔵庫</strong>酸化による褐変・ドリップ（肉汁流出）が発生。見た目・風味ともに品質が低下します。</div>
           <div><strong style="color:var(--sage);display:block;margin-bottom:3px">✓ DENBA</strong>ミオグロビンの酸化を抑制。鮮やかな赤身と肉汁を保ち、同じ賞味期限でも品質に歴然とした差。</div>
         </div>
@@ -1226,9 +1297,9 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
 <section id="products">
   <div class="si">
     <!-- 3-step purchase flow -->
-    <div class="reveal" style="max-width:820px;margin:0 auto 72px;padding:40px 36px;background:var(--parch);border-radius:12px;border:1px solid var(--rule)">
+    <div class="reveal inner-box" style="max-width:820px;margin:0 auto 72px;padding:40px 36px;background:var(--parch);border-radius:12px;border:1px solid var(--rule)">
       <p style="font-family:var(--fja);font-size:13px;color:var(--gold);text-align:center;letter-spacing:.1em;margin-bottom:20px">— 安心して選べる購入ステップ —</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center">
+      <div class="step-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center">
         <div>
           <div style="width:44px;height:44px;background:var(--sage);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fen);font-size:18px;margin:0 auto 12px">1</div>
           <div style="font-family:var(--fja);font-size:14px;font-weight:600;margin-bottom:6px">体験会 または レンタル</div>
@@ -1335,9 +1406,9 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
   </div>
 </div>
     <!-- Price justification / ROI -->
-    <div class="reveal" style="max-width:900px;margin:64px auto 0;padding:40px 36px;background:#fafaf8;border-radius:12px;border:1px solid var(--rule)">
+    <div class="reveal inner-box" style="max-width:900px;margin:64px auto 0;padding:40px 36px;background:#fafaf8;border-radius:12px;border:1px solid var(--rule)">
       <p style="font-family:var(--fja);font-size:13px;color:var(--gold);text-align:center;letter-spacing:.1em;margin-bottom:24px">— 価格を費用ではなく、投資として考える —</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;margin-bottom:28px">
+      <div class="roi-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;margin-bottom:28px">
         <div style="padding:20px 12px;background:#fff;border-radius:8px;border:1px solid var(--rule)">
           <div style="font-size:11px;color:var(--stone);margin-bottom:6px">整体院・マッサージ</div>
           <div style="font-family:var(--fen);font-size:28px;color:var(--ink);font-weight:600">¥8,000</div>
@@ -1368,10 +1439,10 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
       <h2 style="font-family:var(--fja);font-size:clamp(22px,3vw,32px);color:var(--ink);font-weight:400">購入前に、試す方法があります。</h2>
       <div style="width:36px;height:2px;background:var(--gold);margin:16px auto 0"></div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:880px;margin:0 auto">
+    <div class="rental-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:880px;margin:0 auto">
 
       <!-- 体験会 -->
-      <div style="background:var(--parch);border-radius:12px;border:1px solid var(--rule);padding:36px 32px">
+      <div class="inner-card" style="background:var(--parch);border-radius:12px;border:1px solid var(--rule);padding:36px 32px">
         <div style="font-family:var(--sen);font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:12px">Experience Event</div>
         <h3 style="font-family:var(--fja);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:16px">無料体験会</h3>
         <ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:10px">
@@ -1400,7 +1471,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
       </div>
 
       <!-- レンタル -->
-      <div style="background:var(--ink);border-radius:12px;border:1px solid rgba(255,255,255,.1);padding:36px 32px">
+      <div class="inner-card" style="background:var(--ink);border-radius:12px;border:1px solid rgba(255,255,255,.1);padding:36px 32px">
         <div style="font-family:var(--sen);font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:12px">1-Week Trial</div>
         <h3 style="font-family:var(--fja);font-size:20px;font-weight:500;color:#fff;margin-bottom:16px">1週間レンタル</h3>
         <ul style="list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:10px">
@@ -1471,7 +1542,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
       <h2>法人・施設への<em>導入事例</em></h2>
       <div class="gbar"></div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+    <div class="cases-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
 
       <!-- Case 1: ReXeR -->
       <div class="reveal d1" style="background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--rule);display:flex;flex-direction:column">
@@ -1588,13 +1659,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
         <div id="cf-form-wrap">
           <div class="cf-head">
             <div class="cf-title" data-cf-i18n="form_title">お問い合わせフォーム</div>
-            <div class="cf-langs">
-              <button class="cf-lb act" onclick="cfSetLang('ja',this)">JP</button>
-              <button class="cf-lb" onclick="cfSetLang('en',this)">EN</button>
-              <button class="cf-lb" onclick="cfSetLang('zh',this)">ZH</button>
-              <button class="cf-lb" onclick="cfSetLang('th',this)">TH</button>
-              <button class="cf-lb" onclick="cfSetLang('vi',this)">VI</button>
-            </div>
+
           </div>
           <form id="cf" action="https://formspree.io/f/xpqewlne" method="POST" novalidate>
             <div class="cf-group">
@@ -1612,8 +1677,8 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
               <textarea class="cf-textarea" id="cf-msg" name="message" placeholder="ご質問・体験会のご希望など、お気軽にどうぞ。"></textarea>
               <div class="cf-err" id="cf-msg-err"></div>
             </div>
-            <button type="submit" class="cf-submit" data-cf-i18n="submit">送信する →</button>
-            <p class="cf-privacy" data-cf-i18n="privacy"></p>
+            <button type="submit" class="cf-submit">送信する →</button>
+            <p class="cf-privacy">送信いただいた個人情報はお問い合わせへの対応のみに使用します。</p>
           </form>
         </div>
         <!-- Completion screen -->
@@ -1621,9 +1686,9 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
           <div class="cf-done-icon">
             <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#27ae60" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
           </div>
-          <div class="cf-done-title" data-cf-i18n="done_title"></div>
-          <div class="cf-done-msg" data-cf-i18n="done_msg"></div>
-          <button class="cf-back" onclick="cfReset()" data-cf-i18n="back"></button>
+          <div class="cf-done-title">送信完了</div>
+          <div class="cf-done-msg">お問い合わせありがとうございます。<br>担当者よりご連絡差し上げます。</div>
+          <button class="cf-back" onclick="cfReset()">フォームに戻る</button>
         </div>
       </div>
 
@@ -1653,27 +1718,7 @@ const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.targ
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 function sc(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
 function tf(el){el.closest('.fi').classList.toggle('open')}
-function setLang(btn){
-  document.querySelectorAll('.lb').forEach(b=>b.classList.remove('act'));
-  btn.classList.add('act');
-  var map={JP:'',EN:'en',ZH:'zh-CN',TH:'th'};
-  var lang=map[btn.textContent.trim()];
-  if(lang===''){
-    // 日本語に戻す
-    var exp=new Date();exp.setFullYear(exp.getFullYear()-1);
-    document.cookie='googtrans=; expires='+exp.toUTCString()+'; path=/';
-    document.cookie='googtrans=; expires='+exp.toUTCString()+'; domain=.'+location.hostname+'; path=/';
-    location.reload();
-  } else {
-    // 翻訳実行（combo select経由）
-    var tryTranslate=function(){
-      var combo=document.querySelector('select.goog-te-combo');
-      if(combo){combo.value=lang;combo.dispatchEvent(new Event('change'));}
-      else{setTimeout(tryTranslate,500);}
-    };
-    tryTranslate();
-  }
-}
+
 </script>
 
 <!-- Floating Action Button -->
@@ -1683,37 +1728,8 @@ function setLang(btn){
 </button>
 
 <script>
-// ── Contact Form i18n ──────────────────────────────────────
-const cfI18n = {
-  ja:{ form_title:'お問い合わせフォーム', type:'お客様区分', individual:'個人', corporate:'法人', company:'会社名', company_ph:'例）株式会社〇〇', name:'お名前', name_ph:'例）山田 太郎', phone:'電話番号', phone_ph:'例）03-1234-5678', email:'メールアドレス', email_ph:'example@example.com', product:'希望商品', product_ph:'商品名をご入力ください', message:'お問い合わせ内容', message_ph:'お問い合わせ内容をご記入ください', submit:'送信する', privacy:'送信いただいた個人情報はお問い合わせへの対応のみに使用します。', err_company:'会社名を入力してください', err_name:'お名前を入力してください', err_phone:'電話番号を入力してください', err_email:'正しいメールアドレスを入力してください', err_product:'希望商品を入力してください', err_message:'お問い合わせ内容を入力してください', done_title:'送信完了', done_msg:'お問い合わせありがとうございます。\n担当者よりご連絡差し上げます。', back:'フォームに戻る' },
-  en:{ form_title:'Contact Form', type:'Customer Type', individual:'Individual', corporate:'Corporate', company:'Company Name', company_ph:'e.g. ABC Corporation', name:'Full Name', name_ph:'e.g. John Smith', phone:'Phone Number', phone_ph:'e.g. +1-234-567-8900', email:'Email Address', email_ph:'example@example.com', product:'Product of Interest', product_ph:'Enter product name', message:'Inquiry Details', message_ph:'Please describe your inquiry', submit:'Submit', privacy:'Your personal information is used only to respond to your inquiry.', err_company:'Please enter company name', err_name:'Please enter your name', err_phone:'Please enter your phone number', err_email:'Please enter a valid email address', err_product:'Please enter product of interest', err_message:'Please enter inquiry details', done_title:'Message Sent', done_msg:'Thank you for contacting us.\nWe will get back to you shortly.', back:'Back to Form' },
-  zh:{ form_title:'联系表单', type:'客户类型', individual:'个人', corporate:'企业', company:'公司名称', company_ph:'例：ABC有限公司', name:'姓名', name_ph:'例：张三', phone:'电话号码', phone_ph:'例：+86-123-4567', email:'电子邮件', email_ph:'example@example.com', product:'意向商品', product_ph:'请输入商品名称', message:'咨询内容', message_ph:'请描述您的咨询内容', submit:'提交', privacy:'您的个人信息仅用于回复咨询。', err_company:'请输入公司名称', err_name:'请输入姓名', err_phone:'请输入电话号码', err_email:'请输入有效邮箱地址', err_product:'请输入意向商品', err_message:'请输入咨询内容', done_title:'提交成功', done_msg:'感谢您的咨询。\n我们将尽快与您联系。', back:'返回表单' },
-  th:{ form_title:'แบบฟอร์มติดต่อ', type:'ประเภทลูกค้า', individual:'บุคคล', corporate:'นิติบุคคล', company:'ชื่อบริษัท', company_ph:'เช่น บริษัท ABC จำกัด', name:'ชื่อ-นามสกุล', name_ph:'เช่น สมชาย ใจดี', phone:'หมายเลขโทรศัพท์', phone_ph:'เช่น 02-123-4567', email:'อีเมล', email_ph:'example@example.com', product:'สินค้าที่สนใจ', product_ph:'กรอกชื่อสินค้า', message:'รายละเอียด', message_ph:'กรุณาอธิบายรายละเอียด', submit:'ส่งข้อมูล', privacy:'ข้อมูลส่วนตัวใช้เพื่อตอบกลับเท่านั้น', err_company:'กรุณากรอกชื่อบริษัท', err_name:'กรุณากรอกชื่อ', err_phone:'กรุณากรอกเบอร์โทร', err_email:'กรุณากรอกอีเมลที่ถูกต้อง', err_product:'กรุณากรอกสินค้าที่สนใจ', err_message:'กรุณากรอกรายละเอียด', done_title:'ส่งสำเร็จ', done_msg:'ขอบคุณที่ติดต่อเรา\nทีมงานจะติดต่อกลับโดยเร็ว', back:'กลับไปที่ฟอร์ม' },
-  vi:{ form_title:'Biểu mẫu liên hệ', type:'Loại khách hàng', individual:'Cá nhân', corporate:'Doanh nghiệp', company:'Tên công ty', company_ph:'Ví dụ: Công ty ABC', name:'Họ và tên', name_ph:'Ví dụ: Nguyễn Văn A', phone:'Số điện thoại', phone_ph:'Ví dụ: 028-1234-5678', email:'Địa chỉ email', email_ph:'example@example.com', product:'Sản phẩm quan tâm', product_ph:'Nhập tên sản phẩm', message:'Nội dung liên hệ', message_ph:'Mô tả nội dung liên hệ', submit:'Gửi', privacy:'Thông tin cá nhân chỉ dùng để phản hồi yêu cầu.', err_company:'Vui lòng nhập tên công ty', err_name:'Vui lòng nhập họ tên', err_phone:'Vui lòng nhập số điện thoại', err_email:'Vui lòng nhập email hợp lệ', err_product:'Vui lòng nhập sản phẩm quan tâm', err_message:'Vui lòng nhập nội dung liên hệ', done_title:'Gửi thành công', done_msg:'Cảm ơn bạn đã liên hệ.\nChúng tôi sẽ phản hồi sớm nhất có thể.', back:'Quay lại biểu mẫu' }
-};
-let cfLang='ja', cfCorp=false;
-
-function cfSetLang(lang, btn) {
-  cfLang = lang;
-  document.querySelectorAll('.cf-lb').forEach(b=>b.classList.remove('act'));
-  btn.classList.add('act');
-  document.querySelectorAll('[data-cf-i18n]').forEach(el=>{
-    const k=el.getAttribute('data-cf-i18n');
-    if(cfI18n[lang][k]!==undefined) el.textContent=cfI18n[lang][k];
-  });
-  document.querySelectorAll('[data-cf-ph]').forEach(el=>{
-    const k=el.getAttribute('data-cf-ph');
-    if(cfI18n[lang][k]!==undefined) el.placeholder=cfI18n[lang][k];
-  });
-  const tip=document.getElementById('fab-tip');
-  if(tip) tip.textContent=cfI18n[lang]['form_title'];
-}
-
-function cfTogCo(radio) {
-  cfCorp=radio.value==='corporate';
-}
-
-function cfShowErr(id,show) {
+// ── Contact Form ──
+function cfShowErr(id,show){
   const e=document.getElementById(id);
   if(!e) return;
   e.classList.toggle('on',show);
@@ -1721,7 +1737,7 @@ function cfShowErr(id,show) {
   if(inp) inp.style.borderColor=show?'#c0392b':'';
 }
 
-function cfValidate() {
+function cfValidate(){
   let ok=true;
   if(!document.getElementById('cf-name').value.trim()){cfShowErr('cf-name-err',true);ok=false;}else cfShowErr('cf-name-err',false);
   if(!document.getElementById('cf-phone').value.trim()){cfShowErr('cf-phone-err',true);ok=false;}else cfShowErr('cf-phone-err',false);
@@ -1733,49 +1749,28 @@ document.getElementById('cf').addEventListener('submit', async function(e){
   e.preventDefault();
   if(!cfValidate()) return;
   const btn=this.querySelector('.cf-submit');
-  btn.disabled=true; btn.textContent='...';
+  btn.disabled=true; btn.textContent='送信中...';
   const fd=new FormData(this);
   fd.append('_subject','DENBA お問い合わせ');
-  fd.append('language',cfLang);
   try{
-    const r=await fetch(this.action,{method:'POST',body:fd,headers:{Accept:'application/json'}});
-    if(r.ok){cfShowDone();}else{alert('送信に失敗しました。しばらく後に再度お試しください。');btn.disabled=false;btn.textContent=cfI18n[cfLang]['submit'];}
-  }catch{cfShowDone();}
+    await fetch(this.action,{method:'POST',body:fd,headers:{Accept:'application/json'}});
+  }catch(_){}
+  cfShowDone();
 });
 
 function cfShowDone(){
   document.getElementById('cf-form-wrap').style.display='none';
-  const d=document.getElementById('cf-done');
-  d.classList.add('show');
-  d.querySelectorAll('[data-cf-i18n]').forEach(el=>{
-    const k=el.getAttribute('data-cf-i18n');
-    if(cfI18n[cfLang][k]!==undefined) el.textContent=cfI18n[cfLang][k];
-  });
+  document.getElementById('cf-done').classList.add('show');
 }
 
 function cfReset(){
   document.getElementById('cf').reset();
-  cfCorp=false;
   ['cf-name-err','cf-phone-err','cf-msg-err'].forEach(id=>cfShowErr(id,false));
   document.querySelector('.cf-submit').disabled=false;
   document.getElementById('cf-done').classList.remove('show');
   document.getElementById('cf-form-wrap').style.display='';
 }
-
-// Init
-cfSetLang('ja', document.querySelector('.cf-lb.act'));
 </script>
-<div id="_gt" style="display:none"></div>
 
-<!-- Floating LINE button -->
-<a href="https://lin.ee/ZjMJpnE" target="_blank" rel="noopener" id="fab-line"
-   title="LINEで相談する"
-   style="position:fixed;bottom:28px;right:24px;z-index:9000;width:56px;height:56px;border-radius:50%;background:#06C755;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(0,0,0,.28);text-decoration:none;transition:transform .2s,box-shadow .2s"
-   onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 28px rgba(0,0,0,.38)'"
-   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 18px rgba(0,0,0,.28)'">
-  <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
-    <path d="M16 4C9.37 4 4 8.49 4 14.01c0 3.67 2.43 6.87 6.07 8.72l-.75 2.83c-.08.3.21.55.49.39L13.84 23.8A14.5 14.5 0 0016 24.01c6.63 0 12-4.49 12-10.01S22.63 4 16 4z" fill="white"/>
-  </svg>
-</a>
 </body>
 </html>
