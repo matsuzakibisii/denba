@@ -8,7 +8,9 @@ BASE_BRANCH="main"
 cd "$REPO_DIR"
 
 # Pull latest main first
+git stash 2>/dev/null || true
 git pull "$REMOTE" "$BASE_BRANCH" --rebase 2>&1
+git stash pop 2>/dev/null || true
 
 # Check for changes
 if git diff --quiet && git diff --cached --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
