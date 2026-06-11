@@ -411,10 +411,10 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
   .ham{display:flex}
 
   /* ── TYPOGRAPHY ── */
-  h1{font-size:clamp(24px,6.5vw,32px)}
-  h2{font-size:clamp(20px,5.5vw,28px)}
+  h1{font-size:clamp(26px,7vw,34px)}
+  h2{font-size:clamp(22px,6vw,30px)}
   .sh2{margin-bottom:28px}
-  .sdesc{font-size:13px}
+  .sdesc{font-size:15px}
 
   /* ── SECTION PADDING ── */
   section{padding:52px 20px!important}
@@ -424,13 +424,13 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
   #hero{display:flex!important;flex-direction:column}
   .hero-imgs{height:62vw;min-height:240px;order:-1;width:100%}
   .hero-txt{padding:28px 20px 18px;order:0}
-  .hero-sub{font-size:13px}
+  .hero-sub{font-size:15px}
   .ctas{gap:10px}
-  .bp,.bg{font-size:13px;padding:12px 22px}
+  .bp,.bg{font-size:15px;padding:13px 22px}
 
   /* ── TRUST BAR ── */
   .trust-row{gap:12px;padding:12px 16px}
-  .ti{font-size:10px;white-space:normal}
+  .ti{font-size:13px;white-space:normal}
 
   /* ── PAIN PHOTOS: 1ブロックずつ ── */
   .pain-grid{grid-template-columns:1fr}
@@ -442,7 +442,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
   .ls-row,.ls-row:nth-child(even){grid-template-columns:1fr}
   .ls-img{min-height:220px}
   .ls-txt{padding:32px 24px!important}
-  .ls-txt h3{font-size:clamp(18px,4.5vw,22px)}
+  .ls-txt h3{font-size:clamp(20px,5vw,24px)}
 
   /* ── EVIDENCE ── */
   .ev-layout{grid-template-columns:1fr}
@@ -512,10 +512,35 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
   /* ── LINE BUTTON CENTERING ── */
   .line-cta-wrap{flex-direction:column;align-items:center}
   .ctas{align-items:center}
+
+  /* ── ACCESSIBILITY: 高齢者向けフォントサイズ ── */
+  p{font-size:15px;line-height:1.9}
+  li{font-size:15px;line-height:1.85}
+  .slbl{font-size:12px;letter-spacing:3px}
+  .ls-txt p,.ls-txt li{font-size:15px!important;line-height:1.9!important}
+  .pc p{font-size:14px!important;line-height:1.8!important}
+  .pc h3{font-size:15px!important}
+  .wcard h3{font-size:15px!important}
+  .wcard p{font-size:14px!important;line-height:1.85!important}
+  .fq-t{font-size:15px!important;line-height:1.55!important}
+  .fa{font-size:14px!important;line-height:1.9!important}
+  .cf-label{font-size:14px!important}
+  .cf-input,.cf-textarea{font-size:16px!important}
+  .cf-submit{font-size:15px!important;padding:14px!important}
+  .mnav li a{font-size:16px!important}
+  .ttxt{font-size:14px!important;line-height:1.9!important}
+  .ev-desc{font-size:15px!important;line-height:1.85!important}
+  .hotel-row h3{font-size:18px!important}
+  .hotel-row p{font-size:15px!important}
+  .ath-quote{font-size:14px!important}
+  .tinfo strong{font-size:14px!important}
+  .tinfo span{font-size:13px!important}
+  .badge{font-size:13px}
+  .hbs-item{font-size:13px}
 }
 
 @media(max-width:480px){
-  h1{font-size:clamp(22px,6vw,28px)}
+  h1{font-size:clamp(24px,6.5vw,30px)}
   .hero-imgs{height:72vw;min-height:200px}
   .hero-txt{padding:20px 16px 14px}
   section{padding:40px 16px!important}
