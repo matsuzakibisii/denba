@@ -179,7 +179,7 @@ h2 em{font-style:normal;color:var(--sage);font-weight:400}
 .hotel-row{background:var(--sage);border-radius:14px;padding:32px 40px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
 .hotel-row h3{font-family:var(--fja);font-size:20px;font-weight:300;color:#fff;margin-bottom:8px;line-height:1.5}
 .hotel-row p{font-size:13px;color:#fff;line-height:1.8}
-.hotel-badge{background:rgba(184,152,90,.3);border:1px solid var(--gold);color:var(--gold);padding:6px 18px;border-radius:20px;font-size:12px;font-family:var(--sen);font-weight:600;white-space:nowrap;align-self:flex-start}
+.hotel-badge{background:rgba(184,152,90,.3);border:1px solid var(--gold);color:#fff;padding:6px 18px;border-radius:20px;font-size:12px;font-family:var(--sen);font-weight:600;white-space:nowrap;align-self:flex-start}
 
 /* ── TESTIMONIALS ── */
 #testimonials{background:#fff}
@@ -276,7 +276,7 @@ h2 em{font-style:normal;color:var(--sage);font-weight:400}
 .wcard:hover{background:#fdf8ee}
 .wnum{font-family:var(--fen);font-size:36px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:10px;opacity:.7}
 .wcard h3{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:7px;line-height:1.4}
-.wcard p{font-size:13px;color:var(--sage-pale);line-height:1.8}
+.wcard p{font-size:13px;color:var(--stone);line-height:1.8}
 
 /* ── FAQ ── */
 #faq{background:#fff}
@@ -500,6 +500,15 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
   .ls-row-rev{display:flex;flex-direction:column}
   .ls-row-rev .ls-img{order:1;min-height:160px}
   .ls-row-rev .ls-txt{order:0}
+
+  /* ── STEP GRID MOBILE ── */
+  .step-grid{gap:12px!important}
+  .step-grid>div{background:#fff;border-radius:10px;border:1px solid var(--rule);padding:20px 16px!important;text-align:left!important;display:flex;gap:14px;align-items:flex-start}
+  .step-grid>div>div:first-child{flex-shrink:0}
+
+  /* ── LINE BUTTON CENTERING ── */
+  .line-cta-wrap{flex-direction:column;align-items:center}
+  .ctas{align-items:center}
 }
 
 @media(max-width:480px){
@@ -594,9 +603,11 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
     </ul>
     <div class="nright">
       <div class="lw" id="lang-btns">
-        <button class="lb lb-a" onclick="setLang('ja',this)">JP</button>
-        <button class="lb" onclick="setLang('en',this)">EN</button>
-        <button class="lb" onclick="setLang('zh-CN',this)">ZH</button>
+        <button class="lb lb-a" data-lang="ja" onclick="setLang('ja',this)">JP</button>
+        <button class="lb" data-lang="en" onclick="setLang('en',this)">EN</button>
+        <button class="lb" data-lang="zh-CN" onclick="setLang('zh-CN',this)">ZH</button>
+        <button class="lb" data-lang="th" onclick="setLang('th',this)">TH</button>
+        <button class="lb" data-lang="vi" onclick="setLang('vi',this)">VI</button>
       </div>
       <div id="google_translate_element"></div>
       <button class="btn-nav" onclick="sc('cta')">お問い合わせ</button>
@@ -732,7 +743,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
 <!-- AUTONOMIC NERVOUS SYSTEM -->
 <div id="lifestyle">
   <!-- Row 1: Home (photo left, text right) -->
-  <div class="ls-row">
+  <div class="ls-row ls-row-rev">
     <div class="ls-img">
       <img loading="lazy" src="https://www.denba.co.jp/wp-content/themes/denba/assets/images/denba-health/pc/dh-s-02.jpg" alt="ご家庭での使用">
     </div>
@@ -872,7 +883,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
 <div style="background:var(--parch);padding:36px 28px;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
   <p style="font-family:var(--fja);font-size:17px;color:var(--ink);margin-bottom:8px;font-weight:600">使った人が、証明している。</p>
   <p style="font-size:13px;color:var(--stone);margin-bottom:20px">実際に使い続けている方の声です。あなたも一度、DENBA空間をご自身の感覚で確かめてみてください。</p>
-  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center">
+  <div class="line-cta-wrap" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center">
     <button class="bp" onclick="sc('cta')" style="padding:13px 28px">無料体験・お問い合わせ</button>
     <a href="https://lin.ee/ZjMJpnE" target="_blank" rel="noopener" class="bp" style="background:#06C755;border-color:#06C755;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:13px 28px">LINEで相談する →</a>
   </div>
@@ -1447,7 +1458,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
 <div style="background:var(--parch);padding:36px 28px;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
   <p style="font-family:var(--fja);font-size:17px;color:var(--ink);margin-bottom:8px;font-weight:600">科学データが、気になりましたか？</p>
   <p style="font-size:13px;color:var(--stone);margin-bottom:20px">論文や実証データよりも、ご自身の体で感じることが一番の確証です。無料体験会でお待ちしております。</p>
-  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center">
+  <div class="line-cta-wrap" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center">
     <button class="bp" onclick="sc('cta')" style="padding:13px 28px">無料体験・お問い合わせ</button>
     <a href="https://lin.ee/ZjMJpnE" target="_blank" rel="noopener" class="bp" style="background:#06C755;border-color:#06C755;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:13px 28px">LINEで相談する →</a>
   </div>
@@ -1549,15 +1560,6 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
   </div>
 </div>
 
-<!-- Mid CTA bar -->
-<div style="background:var(--parch);padding:36px 28px;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
-  <p style="font-family:var(--fja);font-size:17px;color:var(--ink);margin-bottom:8px;font-weight:600">ご購入前に、体験してください。</p>
-  <p style="font-size:13px;color:var(--stone);margin-bottom:20px">無料体験会（東京・神奈川）またはご自宅で1週間お試しいただけるレンタルをご用意しています。</p>
-  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center">
-    <button class="bp" onclick="sc('cta')" style="padding:13px 28px">無料体験・お問い合わせ</button>
-    <a href="https://lin.ee/ZjMJpnE" target="_blank" rel="noopener" class="bp" style="background:#06C755;border-color:#06C755;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:13px 28px">LINEで相談する →</a>
-  </div>
-</div>
 
 </section>
 
@@ -1690,9 +1692,6 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
             <svg width="12" height="12" viewBox="0 0 32 32" fill="#06C755"><path d="M16 4C9.37 4 4 8.49 4 14.01c0 3.67 2.43 6.87 6.07 8.72l-.75 2.83c-.08.3.21.55.49.39L13.84 23.8A14.5 14.5 0 0016 24.01c6.63 0 12-4.49 12-10.01S22.63 4 16 4z"/></svg>
             LINEで気軽に質問OK
           </span>
-        </div>
-        <div class="ctabtns">
-          <a href="https://lin.ee/ZjMJpnE" target="_blank" rel="noopener" class="bp" style="background:#06C755;border-color:#06C755;text-decoration:none;display:inline-flex;align-items:center;gap:8px">LINEで相談する →</a>
         </div>
       </div>
 
@@ -1857,19 +1856,81 @@ function cfReset() {
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
 function googleTranslateElementInit(){
-  new google.translate.TranslateElement({pageLanguage:'ja',includedLanguages:'ja,en,zh-CN',autoDisplay:false},'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage:'ja',includedLanguages:'ja,en,zh-CN,th,vi',autoDisplay:false},'google_translate_element');
+  setTimeout(applyStoredLang, 800);
 }
+
+function applyStoredLang(){
+  try {
+    var lang = localStorage.getItem('selectedLang');
+    if(lang && lang !== 'ja'){
+      var btn = document.querySelector('.lb[data-lang="'+lang+'"]');
+      _applyLang(lang, btn);
+    }
+  } catch(e){}
+}
+
 function setLang(lang, btn){
+  try { localStorage.setItem('selectedLang', lang); } catch(e){}
+  _applyLang(lang, btn);
+}
+
+function _applyLang(lang, btn){
   document.querySelectorAll('.lb').forEach(function(b){b.classList.remove('lb-a')});
   if(btn) btn.classList.add('lb-a');
-  // wait for translate widget to be ready
+  var hostname = location.hostname;
+  // Set googtrans cookie for cross-browser reliability
+  if(lang === 'ja'){
+    document.cookie = 'googtrans=; path=/; max-age=0';
+    document.cookie = 'googtrans=; path=/; domain='+hostname+'; max-age=0';
+    document.cookie = 'googtrans=; path=/; domain=.'+hostname+'; max-age=0';
+  } else {
+    var cv = '/ja/'+lang;
+    document.cookie = 'googtrans='+cv+'; path=/; max-age=86400';
+    document.cookie = 'googtrans='+cv+'; path=/; domain=.'+hostname+'; max-age=86400';
+  }
   var tries = 0;
   (function trySet(){
     var s = document.querySelector('.goog-te-combo');
-    if(s){ s.value = lang; s.dispatchEvent(new Event('change')); }
-    else if(tries++ < 20){ setTimeout(trySet, 200); }
+    if(s){
+      s.value = (lang === 'ja' ? '' : lang);
+      s.dispatchEvent(new Event('change'));
+    } else if(tries++ < 40){
+      setTimeout(trySet, 250);
+    } else if(lang !== 'ja'){
+      // Fallback: reload with cookie set
+      location.reload();
+    }
   })();
 }
+
+// ── IP / browser language auto-detection (first visit only) ──
+(function autoDetect(){
+  try {
+    if(localStorage.getItem('langDetected')) return;
+    localStorage.setItem('langDetected', '1');
+    // Browser language hint
+    var bl = (navigator.language || navigator.userLanguage || '').substring(0,2).toLowerCase();
+    var blMap = {th:'th', vi:'vi', zh:'zh-CN', en:'en'};
+    if(blMap[bl]) { try { localStorage.setItem('selectedLang', blMap[bl]); } catch(e){} }
+    // IP-based detection (overrides browser hint)
+    fetch('https://ipapi.co/json/?fields=country_code')
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var ipMap = {TH:'th',VN:'vi',CN:'zh-CN',TW:'zh-CN',HK:'zh-CN',MO:'zh-CN',SG:'zh-CN'};
+        var ipLang = ipMap[d.country_code];
+        if(ipLang){
+          try { localStorage.setItem('selectedLang', ipLang); } catch(e){}
+          // Apply when translate widget is ready
+          setTimeout(function(){
+            var btn = document.querySelector('.lb[data-lang="'+ipLang+'"]');
+            _applyLang(ipLang, btn);
+          }, 1200);
+        }
+      })
+      .catch(function(){});
+  } catch(e){}
+})();
 </script>
 </body>
 </html>
