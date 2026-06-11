@@ -63,6 +63,13 @@ nav.sh{box-shadow:0 4px 20px rgba(0,0,0,.07)}
 .nlinks a:hover{color:var(--sage)}
 .nright{display:flex;align-items:center;gap:8px;margin-left:16px}
 .lw{display:flex;gap:4px}
+/* ── LANG BUTTONS ── */
+.lb{font-size:10px;font-family:var(--sen);padding:3px 7px;border-radius:3px;border:1px solid var(--rule);background:#fff;color:var(--stone);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lb:hover{border-color:var(--sage);color:var(--sage)}
+.lb-a{background:var(--sage)!important;color:#fff!important;border-color:var(--sage)!important}
+#google_translate_element{display:none}
+.goog-te-banner-frame{display:none!important}
+body{top:0!important}
 .btn-nav{background:var(--sage);color:#fff;border:none;padding:9px 18px;border-radius:4px;font-size:12px;font-weight:600;white-space:nowrap;transition:background .2s}
 .btn-nav:hover{background:var(--sage-mid)}
 
@@ -85,14 +92,14 @@ h1 em{font-style:normal;color:var(--sage)}
 /* hero right: stacked product images */
 .hero-imgs{position:relative;height:100vh;overflow:hidden}
 .hero-main-img{width:100%;height:100%;object-fit:cover;object-position:center}
-.hero-badge-strip{position:absolute;bottom:0;left:0;right:0;background:rgba(61,90,76,.85);backdrop-filter:blur(8px);padding:14px 24px;display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+.hero-badge-strip{position:absolute;bottom:0;left:0;right:0;background:rgba(61,90,76,.85);backdrop-filter:blur(8px);padding:7px 12px;display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
 .hbs-item{color:rgba(255,255,255,.85);font-size:11px;font-family:var(--sen);display:flex;align-items:center;gap:6px}
 .hbs-item::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0}
 
 /* ── TRUST ── */
-#trust{background:var(--sage);padding:15px 28px}
+#trust{background:var(--sage);padding:8px 14px}
 .trust-row{max-width:1120px;margin:0 auto;display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
-.ti{color:var(--sage-pale);font-size:11px;font-family:var(--sen);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.ti{color:#fff;font-size:11px;font-family:var(--sen);display:flex;align-items:center;gap:6px;white-space:nowrap}
 .ti::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--gold)}
 
 /* ── SECTION BASE ── */
@@ -171,7 +178,7 @@ h2 em{font-style:normal;color:var(--sage);font-weight:400}
 .ath-quote{font-size:12px;color:var(--stone);line-height:1.75}
 .hotel-row{background:var(--sage);border-radius:14px;padding:32px 40px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
 .hotel-row h3{font-family:var(--fja);font-size:20px;font-weight:300;color:#fff;margin-bottom:8px;line-height:1.5}
-.hotel-row p{font-size:13px;color:var(--sage-pale);line-height:1.8}
+.hotel-row p{font-size:13px;color:#fff;line-height:1.8}
 .hotel-badge{background:rgba(184,152,90,.3);border:1px solid var(--gold);color:var(--gold);padding:6px 18px;border-radius:20px;font-size:12px;font-family:var(--sen);font-weight:600;white-space:nowrap;align-self:flex-start}
 
 /* ── TESTIMONIALS ── */
@@ -299,7 +306,7 @@ h2 em{font-style:normal;color:var(--sage);font-weight:400}
 .cta-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;max-width:1060px;margin:0 auto}
 .cta-left{text-align:left}
 .cta-left h2{text-align:left;margin-bottom:14px}
-.cta-left .ctabtns{justify-content:flex-start}
+.cta-left .ctabtns{justify-content:center}
 .cta-left .glinks{justify-content:flex-start}
 .cf-card{background:#fff;border-radius:12px;border:1px solid var(--rule);padding:32px 28px;box-shadow:0 4px 24px rgba(0,0,0,.06)}
 .cf-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
@@ -483,6 +490,16 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
   /* ── FAB ── */
   .fab{bottom:18px;right:18px;width:48px;height:48px}
   .cf-card{padding:24px 16px}
+
+  /* ── MOBILE: ヘッダー右寄せ ── */
+  .nright{margin-left:auto}
+  /* ── MOBILE: ls-img 縮小 ── */
+  .ls-img{min-height:180px}
+  .ls-img img{max-height:220px;object-fit:cover}
+  /* ── MOBILE: dh-s-04 テキスト→画像の順 ── */
+  .ls-row-rev{display:flex;flex-direction:column}
+  .ls-row-rev .ls-img{order:1;min-height:160px}
+  .ls-row-rev .ls-txt{order:0}
 }
 
 @media(max-width:480px){
@@ -576,6 +593,12 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nright">
+      <div class="lw" id="lang-btns">
+        <button class="lb lb-a" onclick="setLang('ja',this)">JP</button>
+        <button class="lb" onclick="setLang('en',this)">EN</button>
+        <button class="lb" onclick="setLang('zh-CN',this)">ZH</button>
+      </div>
+      <div id="google_translate_element"></div>
       <button class="btn-nav" onclick="sc('cta')">お問い合わせ</button>
       <button class="ham" id="ham" onclick="toggleMobileNav()" aria-label="メニューを開く">
         <span class="ham-line"></span>
@@ -741,7 +764,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
     </div>
   </div>
   <!-- Row 3: Salon (photo left, text right) -->
-  <div class="ls-row">
+  <div class="ls-row ls-row-rev">
     <div class="ls-img">
       <img loading="lazy" src="https://www.denba.co.jp/wp-content/themes/denba/assets/images/denba-health/pc/dh-s-04.jpg" alt="サロン・整体での使用">
     </div>
@@ -904,7 +927,7 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
   <div class="reveal" style="margin-bottom:80px">
     <h3 style="color:var(--gold);font-family:var(--fja);font-size:15px;text-align:center;margin-bottom:28px;letter-spacing:.05em">神経系の分類</h3>
     <div style="overflow-x:auto">
-    <svg viewBox="0 0 1188 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:980px;display:block;margin:0 auto">
+    <svg viewBox="0 0 1188 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:640px;max-width:980px;display:block;margin:0 auto">
       <defs>
         <style>
           .nd  {fill:#1c1c1a;stroke:#C7A957;stroke-width:1.5}
@@ -1671,11 +1694,6 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
         <div class="ctabtns">
           <a href="https://lin.ee/ZjMJpnE" target="_blank" rel="noopener" class="bp" style="background:#06C755;border-color:#06C755;text-decoration:none;display:inline-flex;align-items:center;gap:8px">LINEで相談する →</a>
         </div>
-        <div class="glinks">
-          <a class="gl" href="#">Contact us in English</a>
-          <a class="gl" href="#">한국어 문의</a>
-          <a class="gl" href="#">中文咨询</a>
-        </div>
       </div>
 
       <!-- Right: Contact form card -->
@@ -1835,5 +1853,23 @@ function cfReset() {
 }
 </script>
 
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'ja',includedLanguages:'ja,en,zh-CN',autoDisplay:false},'google_translate_element');
+}
+function setLang(lang, btn){
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.remove('lb-a')});
+  if(btn) btn.classList.add('lb-a');
+  // wait for translate widget to be ready
+  var tries = 0;
+  (function trySet(){
+    var s = document.querySelector('.goog-te-combo');
+    if(s){ s.value = lang; s.dispatchEvent(new Event('change')); }
+    else if(tries++ < 20){ setTimeout(trySet, 200); }
+  })();
+}
+</script>
 </body>
 </html>
