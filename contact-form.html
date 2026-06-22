@@ -187,6 +187,55 @@
       height: 16px;
     }
 
+    /* ── Vertical radio group (referral source) ── */
+    .radio-group-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .radio-label-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text);
+      padding: 9px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      transition: all 0.2s;
+    }
+
+    .radio-label-row:has(input:checked) {
+      border-color: var(--primary-light);
+      background: #eef3fc;
+      color: var(--primary-light);
+    }
+
+    .radio-label-row input[type="radio"] {
+      accent-color: var(--primary-light);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ── Referral "other" text field ── */
+    #referral-other-group {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.35s ease;
+      margin-top: 0;
+    }
+
+    #referral-other-group.visible {
+      max-height: 140px;
+      opacity: 1;
+      margin-top: 12px;
+    }
+
     /* ── Company field ── */
     #company-group {
       overflow: hidden;
@@ -382,6 +431,48 @@
           <div class="field-error" id="message-error" data-i18n="err_message"></div>
         </div>
 
+        <!-- どこでこのサイトをお知りになりましたか -->
+        <div class="form-group">
+          <label data-i18n="referral"></label>
+          <div class="radio-group-vertical">
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="search" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_search"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="friend_web" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_friend_web"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="friend_word" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_friend_word"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="other_site" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_other_site"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="ad" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_ad"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="print" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_print"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="sns" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_sns"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="other" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_other"></span>
+            </label>
+          </div>
+          <div class="form-group" id="referral-other-group" style="margin-bottom:0">
+            <textarea id="referral-other" name="referral_other" disabled data-i18n-placeholder="ref_other_ph" style="min-height:70px"></textarea>
+          </div>
+        </div>
+
         <div class="divider"></div>
 
         <button type="submit" class="submit-btn" data-i18n="submit"></button>
@@ -428,6 +519,16 @@ const i18n = {
     product_ph:      "ご希望の商品名をご入力ください",
     message:         "お問い合わせ内容",
     message_ph:      "お問い合わせ内容をご記入ください",
+    referral:        "どこでこのサイトをお知りになりましたか？",
+    ref_search:      "Yahoo!、Googleなどで検索した",
+    ref_friend_web:  "知人が紹介してくれた（ブログ、メールなどウェブで）",
+    ref_friend_word: "知人が紹介してくれた（直接口コミで）",
+    ref_other_site:  "他のサイトで紹介されていた",
+    ref_ad:          "ウェブ上で広告をみた",
+    ref_print:       "新聞・雑誌で見た",
+    ref_sns:         "SNSで見た",
+    ref_other:       "その他",
+    ref_other_ph:    "具体的にご記入ください",
     submit:          "送信する",
     privacy:         "送信いただいた個人情報は、お問い合わせへの対応のみに使用いたします。",
     err_company:     "会社名を入力してください",
@@ -460,6 +561,16 @@ const i18n = {
     product_ph:      "Enter the product you are interested in",
     message:         "Inquiry Details",
     message_ph:      "Please describe your inquiry",
+    referral:        "How did you find this website?",
+    ref_search:      "Searched on Yahoo!, Google, etc.",
+    ref_friend_web:  "Recommended by a friend (online, e.g. blog or email)",
+    ref_friend_word: "Recommended by a friend (in person)",
+    ref_other_site:  "Mentioned on another website",
+    ref_ad:          "Saw an advertisement online",
+    ref_print:       "Saw it in a newspaper or magazine",
+    ref_sns:         "Saw it on social media",
+    ref_other:       "Other",
+    ref_other_ph:    "Please specify",
     submit:          "Submit",
     privacy:         "Your personal information will only be used to respond to your inquiry.",
     err_company:     "Please enter your company name",
@@ -492,6 +603,16 @@ const i18n = {
     product_ph:      "请输入您感兴趣的商品名称",
     message:         "咨询内容",
     message_ph:      "请详细描述您的咨询内容",
+    referral:        "您是通过什么途径了解本网站的？",
+    ref_search:      "通过Yahoo!、Google等搜索引擎搜索到的",
+    ref_friend_web:  "朋友介绍的（博客、邮件等网络途径）",
+    ref_friend_word: "朋友介绍的（直接口头介绍）",
+    ref_other_site:  "在其他网站上看到介绍",
+    ref_ad:          "在网络上看到广告",
+    ref_print:       "在报纸・杂志上看到",
+    ref_sns:         "在社交媒体上看到",
+    ref_other:       "其他",
+    ref_other_ph:    "请具体说明",
     submit:          "提交",
     privacy:         "您提供的个人信息仅用于回复您的咨询。",
     err_company:     "请输入公司名称",
@@ -524,6 +645,16 @@ const i18n = {
     product_ph:      "กรุณากรอกชื่อสินค้าที่ต้องการ",
     message:         "รายละเอียดการสอบถาม",
     message_ph:      "กรุณาอธิบายรายละเอียดคำถามของคุณ",
+    referral:        "คุณรู้จักเว็บไซต์นี้จากที่ใด？",
+    ref_search:      "ค้นหาจาก Yahoo!, Google เป็นต้น",
+    ref_friend_web:  "เพื่อนแนะนำ (ผ่านบล็อก อีเมล หรือช่องทางออนไลน์อื่นๆ)",
+    ref_friend_word: "เพื่อนแนะนำ (บอกต่อแบบปากต่อปาก)",
+    ref_other_site:  "มีการแนะนำในเว็บไซต์อื่น",
+    ref_ad:          "เห็นโฆษณาบนอินเทอร์เน็ต",
+    ref_print:       "เห็นในหนังสือพิมพ์หรือนิตยสาร",
+    ref_sns:         "เห็นบนโซเชียลมีเดีย",
+    ref_other:       "อื่นๆ",
+    ref_other_ph:    "กรุณาระบุรายละเอียด",
     submit:          "ส่งข้อมูล",
     privacy:         "ข้อมูลส่วนตัวของคุณจะถูกใช้เพื่อตอบกลับการสอบถามเท่านั้น",
     err_company:     "กรุณากรอกชื่อบริษัท",
@@ -556,6 +687,16 @@ const i18n = {
     product_ph:      "Nhập tên sản phẩm bạn quan tâm",
     message:         "Nội dung liên hệ",
     message_ph:      "Vui lòng mô tả nội dung liên hệ của bạn",
+    referral:        "Bạn biết đến trang web này từ đâu?",
+    ref_search:      "Tìm kiếm trên Yahoo!, Google, v.v.",
+    ref_friend_web:  "Được bạn bè giới thiệu (qua blog, email, v.v. trên mạng)",
+    ref_friend_word: "Được bạn bè giới thiệu (truyền miệng trực tiếp)",
+    ref_other_site:  "Được giới thiệu trên một trang web khác",
+    ref_ad:          "Thấy quảng cáo trên mạng",
+    ref_print:       "Thấy trên báo hoặc tạp chí",
+    ref_sns:         "Thấy trên mạng xã hội",
+    ref_other:       "Khác",
+    ref_other_ph:    "Vui lòng cho biết cụ thể",
     submit:          "Gửi",
     privacy:         "Thông tin cá nhân của bạn chỉ được dùng để phản hồi yêu cầu liên hệ.",
     err_company:     "Vui lòng nhập tên công ty",
@@ -626,6 +767,23 @@ function toggleCompany(radio) {
     companyInput.required = false;
     companyInput.value = '';
     clearError('company');
+  }
+}
+
+// ── Toggle referral "other" textarea ───────────────────────
+function toggleReferralOther(radio) {
+  const group = document.getElementById('referral-other-group');
+  const otherInput = document.getElementById('referral-other');
+  const isOther = radio.value === 'other';
+
+  if (isOther) {
+    group.classList.add('visible');
+    otherInput.disabled = false;
+    otherInput.focus();
+  } else {
+    group.classList.remove('visible');
+    otherInput.disabled = true;
+    otherInput.value = '';
   }
 }
 
@@ -730,6 +888,8 @@ function resetForm() {
   document.getElementById('contact-form').reset();
   isCorporate = false;
   document.getElementById('company-group').classList.remove('visible');
+  document.getElementById('referral-other-group').classList.remove('visible');
+  document.getElementById('referral-other').disabled = true;
 
   // Re-enable submit
   const btn = document.querySelector('.submit-btn');
