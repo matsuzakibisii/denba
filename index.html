@@ -318,6 +318,12 @@ h2 em{font-style:normal;color:var(--sage);font-weight:400}
 .cf-radio{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;padding:7px 12px;border:1.5px solid var(--rule);border-radius:5px;flex:1;justify-content:center;transition:all .2s;font-family:var(--sja)}
 .cf-radio:has(input:checked){border-color:var(--sage);background:rgba(61,90,76,.06);color:var(--sage);font-weight:600}
 .cf-radio input{accent-color:var(--sage)}
+.cf-radios-v{display:flex;flex-direction:column;gap:7px}
+.cf-radio-row{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;padding:8px 12px;border:1.5px solid var(--rule);border-radius:5px;transition:all .2s;font-family:var(--sja)}
+.cf-radio-row:has(input:checked){border-color:var(--sage);background:rgba(61,90,76,.06);color:var(--sage);font-weight:600}
+.cf-radio-row input{accent-color:var(--sage);flex-shrink:0}
+.cf-referral-other{overflow:hidden;max-height:0;opacity:0;transition:max-height .3s ease,opacity .25s ease,margin-top .3s ease;margin-top:0}
+.cf-referral-other.show{max-height:80px;opacity:1;margin-top:9px}
 .cf-company{overflow:hidden;max-height:0;opacity:0;transition:max-height .3s ease,opacity .25s ease,margin-bottom .3s ease;margin-bottom:0}
 .cf-company.show{max-height:80px;opacity:1;margin-bottom:14px}
 .cf-input,.cf-textarea{width:100%;padding:9px 12px;border:1.5px solid var(--rule);border-radius:5px;font-size:13px;font-family:var(--sja);color:var(--ink);background:#fafaf8;outline:none;transition:border-color .2s,box-shadow .2s}
@@ -1777,6 +1783,22 @@ footer{background:var(--ink);padding:36px 28px 24px;color:var(--stone)}
               <textarea class="cf-textarea" id="cf-msg" name="message" placeholder="ご質問・体験会のご希望など、お気軽にどうぞ。"></textarea>
               <div class="cf-err" id="cf-msg-err"></div>
             </div>
+            <div class="cf-group">
+              <label class="cf-label">どこでこのサイトをお知りになりましたか</label>
+              <div class="cf-radios-v">
+                <label class="cf-radio-row"><input type="radio" name="referral" value="検索エンジン" onchange="cfToggleReferralOther(this)"><span>検索エンジン（Google・Yahoo!など）</span></label>
+                <label class="cf-radio-row"><input type="radio" name="referral" value="友人・知人の紹介（Web）" onchange="cfToggleReferralOther(this)"><span>友人・知人の紹介（Web経由）</span></label>
+                <label class="cf-radio-row"><input type="radio" name="referral" value="友人・知人の紹介（口コミ）" onchange="cfToggleReferralOther(this)"><span>友人・知人の紹介（口コミ）</span></label>
+                <label class="cf-radio-row"><input type="radio" name="referral" value="他のサイト" onchange="cfToggleReferralOther(this)"><span>他のサイトで見て</span></label>
+                <label class="cf-radio-row"><input type="radio" name="referral" value="広告" onchange="cfToggleReferralOther(this)"><span>広告</span></label>
+                <label class="cf-radio-row"><input type="radio" name="referral" value="印刷物" onchange="cfToggleReferralOther(this)"><span>パンフレット・印刷物</span></label>
+                <label class="cf-radio-row"><input type="radio" name="referral" value="SNS" onchange="cfToggleReferralOther(this)"><span>SNS</span></label>
+                <label class="cf-radio-row"><input type="radio" name="referral" value="その他" onchange="cfToggleReferralOther(this)"><span>その他</span></label>
+              </div>
+              <div class="cf-referral-other" id="cf-referral-other-wrap">
+                <input class="cf-input" type="text" id="cf-referral-other" name="referral_other" placeholder="具体的にご記入ください">
+              </div>
+            </div>
             <button type="submit" class="cf-submit">送信する →</button>
             <p class="cf-privacy">送信いただいた個人情報はお問い合わせへの対応のみに使用します。</p>
           </form>
@@ -1844,6 +1866,9 @@ function cfShowErr(id, show) {
   e.classList.toggle('on', show);
   const inp = e.closest('.cf-group')?.querySelector('.cf-input,.cf-textarea');
   if (inp) inp.style.borderColor = show ? '#c0392b' : '';
+}
+function cfToggleReferralOther(el) {
+  document.getElementById('cf-referral-other-wrap').classList.toggle('show', el.value === 'その他');
 }
 
 function cfValidate() {
