@@ -11,6 +11,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://denba.bisii.co.jp/media/article-5.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://denba.bisii.co.jp/media/article-4.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://denba.bisii.co.jp/media/article-3.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://denba.bisii.co.jp/media/article-2.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
