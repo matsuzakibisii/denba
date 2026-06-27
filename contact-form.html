@@ -433,7 +433,7 @@
 
         <!-- どこでこのサイトをお知りになりましたか -->
         <div class="form-group">
-          <label data-i18n="referral"></label>
+          <label data-i18n="referral"><span class="required-badge" data-i18n="required"></span></label>
           <div class="radio-group-vertical">
             <label class="radio-label-row">
               <input type="radio" name="referral" value="search" onchange="toggleReferralOther(this)">
@@ -468,6 +468,7 @@
               <span data-i18n="ref_other"></span>
             </label>
           </div>
+          <div class="field-error" id="referral-error" data-i18n="err_referral"></div>
           <div class="form-group" id="referral-other-group" style="margin-bottom:0">
             <textarea id="referral-other" name="referral_other" disabled data-i18n-placeholder="ref_other_ph" style="min-height:70px"></textarea>
           </div>
@@ -529,6 +530,7 @@ const i18n = {
     ref_sns:         "SNSで見た",
     ref_other:       "その他",
     ref_other_ph:    "具体的にご記入ください",
+    err_referral:    "いずれかを選択してください",
     submit:          "送信する",
     privacy:         "送信いただいた個人情報は、お問い合わせへの対応のみに使用いたします。",
     err_company:     "会社名を入力してください",
@@ -571,6 +573,7 @@ const i18n = {
     ref_sns:         "Saw it on social media",
     ref_other:       "Other",
     ref_other_ph:    "Please specify",
+    err_referral:    "Please select one option",
     submit:          "Submit",
     privacy:         "Your personal information will only be used to respond to your inquiry.",
     err_company:     "Please enter your company name",
@@ -613,6 +616,7 @@ const i18n = {
     ref_sns:         "在社交媒体上看到",
     ref_other:       "其他",
     ref_other_ph:    "请具体说明",
+    err_referral:    "请选择一个选项",
     submit:          "提交",
     privacy:         "您提供的个人信息仅用于回复您的咨询。",
     err_company:     "请输入公司名称",
@@ -655,6 +659,7 @@ const i18n = {
     ref_sns:         "เห็นบนโซเชียลมีเดีย",
     ref_other:       "อื่นๆ",
     ref_other_ph:    "กรุณาระบุรายละเอียด",
+    err_referral:    "กรุณาเลือกหนึ่งตัวเลือก",
     submit:          "ส่งข้อมูล",
     privacy:         "ข้อมูลส่วนตัวของคุณจะถูกใช้เพื่อตอบกลับการสอบถามเท่านั้น",
     err_company:     "กรุณากรอกชื่อบริษัท",
@@ -697,6 +702,7 @@ const i18n = {
     ref_sns:         "Thấy trên mạng xã hội",
     ref_other:       "Khác",
     ref_other_ph:    "Vui lòng cho biết cụ thể",
+    err_referral:    "Vui lòng chọn một mục",
     submit:          "Gửi",
     privacy:         "Thông tin cá nhân của bạn chỉ được dùng để phản hồi yêu cầu liên hệ.",
     err_company:     "Vui lòng nhập tên công ty",
@@ -830,6 +836,10 @@ function validateForm() {
     showError('message', true); valid = false;
   } else { clearError('message'); }
 
+  if (!document.querySelector('input[name="referral"]:checked')) {
+    showError('referral', true); valid = false;
+  } else { clearError('referral'); }
+
   return valid;
 }
 
@@ -897,7 +907,7 @@ function resetForm() {
   btn.textContent = i18n[currentLang]['submit'];
 
   // Clear errors
-  ['company','name','phone','email','product','message'].forEach(clearError);
+  ['company','name','phone','email','product','message','referral'].forEach(clearError);
 
   document.getElementById('completion-screen').classList.remove('show');
   document.getElementById('form-screen').style.display = '';
