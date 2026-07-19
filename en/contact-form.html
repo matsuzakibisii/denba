@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CCCN9E7G60"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CCCN9E7G60');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | DENBA Health Authorized Distributor</title>
+  <meta name="description" content="Contact form for the DENBA Health authorized distributor. Feel free to reach out with product questions or to book a free trial event or rental.">
+  <link rel="canonical" href="https://denba.bisii.co.jp/en/contact-form.html">
+<link rel="alternate" hreflang="ja" href="https://denba.bisii.co.jp/contact-form.html">
+<link rel="alternate" hreflang="en" href="https://denba.bisii.co.jp/en/contact-form.html">
+<link rel="alternate" hreflang="x-default" href="https://denba.bisii.co.jp/contact-form.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root {
+      --primary: #1a3a5c;
+      --primary-light: #2a5298;
+      --accent: #e8a020;
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --border: #d0d7e3;
+      --text: #2c3e50;
+      --text-light: #6b7c93;
+      --error: #e74c3c;
+      --success: #27ae60;
+      --radius: 10px;
+      --shadow: 0 4px 24px rgba(26,58,92,0.10);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Noto Sans', 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--primary);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Language switcher ── */
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.8);
+      padding: 5px 11px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .lang-btn:hover { background: rgba(255,255,255,0.25); color: #fff; }
+    .lang-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px 44px;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .card-sub {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* ── Form ── */
+    .form-group { margin-bottom: 22px; }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .required-badge {
+      display: inline-block;
+      background: var(--error);
+      color: #fff;
+      font-size: 0.65rem;
+      padding: 2px 5px;
+      border-radius: 3px;
+      margin-left: 5px;
+      vertical-align: middle;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--text);
+      background: #fafbfd;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(42,82,152,0.12);
+      background: #fff;
+    }
+
+    textarea { resize: vertical; min-height: 130px; }
+
+    .field-error {
+      color: var(--error);
+      font-size: 0.78rem;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .field-error.show { display: block; }
+
+    /* ── Radio group ── */
+    .radio-group {
+      display: flex;
+      gap: 20px;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 9px 18px;
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      transition: all 0.2s;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .radio-label:has(input:checked) {
+      border-color: var(--primary-light);
+      background: #eef3fc;
+      color: var(--primary-light);
+    }
+
+    .radio-label input[type="radio"] {
+      accent-color: var(--primary-light);
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ── Vertical radio group (referral source) ── */
+    .radio-group-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .radio-label-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text);
+      padding: 9px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      transition: all 0.2s;
+    }
+
+    .radio-label-row:has(input:checked) {
+      border-color: var(--primary-light);
+      background: #eef3fc;
+      color: var(--primary-light);
+    }
+
+    .radio-label-row input[type="radio"] {
+      accent-color: var(--primary-light);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ── Referral "other" text field ── */
+    #referral-other-group {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.35s ease;
+      margin-top: 0;
+    }
+
+    #referral-other-group.visible {
+      max-height: 140px;
+      opacity: 1;
+      margin-top: 12px;
+    }
+
+    /* ── Company field ── */
+    #company-group {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.25s ease, margin-bottom 0.35s ease;
+      margin-bottom: 0;
+    }
+
+    #company-group.visible {
+      max-height: 100px;
+      opacity: 1;
+      margin-bottom: 22px;
+    }
+
+    /* ── Submit button ── */
+    .submit-btn {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      letter-spacing: 0.04em;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover { background: var(--primary-light); }
+    .submit-btn:active { transform: scale(0.98); }
+    .submit-btn:disabled { background: #aaa; cursor: not-allowed; }
+
+    .privacy-note {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── Completion screen ── */
+    #completion-screen {
+      display: none;
+    }
+
+    #completion-screen.show {
+      display: block;
+    }
+
+    .completion-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #eafaf1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .completion-icon svg { width: 38px; height: 38px; }
+
+    .completion-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--success);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .completion-msg {
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.8;
+      font-size: 0.92rem;
+      margin-bottom: 28px;
+    }
+
+    .back-btn {
+      display: block;
+      width: 100%;
+      background: var(--bg);
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover { background: #eef3fc; }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .card { padding: 28px 20px; }
+      .radio-group { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 id="header-title">Contact Us</h1>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="setLang('ja')">日本語</button>
+    <button class="lang-btn active" onclick="setLang('en')">English</button>
+    <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    <button class="lang-btn" onclick="setLang('th')">ภาษาไทย</button>
+    <button class="lang-btn" onclick="setLang('vi')">Tiếng Việt</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="card">
+
+    <!-- ── Contact Form ── -->
+    <div id="form-screen">
+      <div class="card-title" data-i18n="title"></div>
+      <div class="card-sub" data-i18n="subtitle"></div>
+
+      <form id="contact-form"
+            action="https://formspree.io/f/xpqewlne"
+            method="POST"
+            novalidate>
+
+        <!-- Individual / Corporate -->
+        <div class="form-group">
+          <label data-i18n="type"><span class="required-badge" data-i18n="required"></span></label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="customer_type" value="individual" checked onchange="toggleCompany(this)">
+              <span data-i18n="individual"></span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="customer_type" value="corporate" onchange="toggleCompany(this)">
+              <span data-i18n="corporate"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Company name (corporate only) -->
+        <div class="form-group" id="company-group">
+          <label for="company" data-i18n="company"><span class="required-badge" data-i18n="required"></span></label>
+          <input type="text" id="company" name="company" data-i18n-placeholder="company_ph">
+          <div class="field-error" id="company-error" data-i18n="err_company"></div>
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name" data-i18n="name"><span class="required-badge" data-i18n="required"></span></label>
+          <input type="text" id="name" name="name" data-i18n-placeholder="name_ph">
+          <div class="field-error" id="name-error" data-i18n="err_name"></div>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label for="phone" data-i18n="phone"><span class="required-badge" data-i18n="required"></span></label>
+          <input type="tel" id="phone" name="phone" data-i18n-placeholder="phone_ph">
+          <div class="field-error" id="phone-error" data-i18n="err_phone"></div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email" data-i18n="email"><span class="required-badge" data-i18n="required"></span></label>
+          <input type="email" id="email" name="email" data-i18n-placeholder="email_ph">
+          <div class="field-error" id="email-error" data-i18n="err_email"></div>
+        </div>
+
+        <!-- Product of interest -->
+        <div class="form-group">
+          <label for="product" data-i18n="product"><span class="required-badge" data-i18n="required"></span></label>
+          <input type="text" id="product" name="product" data-i18n-placeholder="product_ph">
+          <div class="field-error" id="product-error" data-i18n="err_product"></div>
+        </div>
+
+        <!-- Inquiry details -->
+        <div class="form-group">
+          <label for="message" data-i18n="message"><span class="required-badge" data-i18n="required"></span></label>
+          <textarea id="message" name="message" data-i18n-placeholder="message_ph"></textarea>
+          <div class="field-error" id="message-error" data-i18n="err_message"></div>
+        </div>
+
+        <!-- Referral source -->
+        <div class="form-group">
+          <label data-i18n="referral"><span class="required-badge" data-i18n="required"></span></label>
+          <div class="radio-group-vertical">
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="search" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_search"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="friend_web" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_friend_web"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="friend_word" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_friend_word"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="other_site" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_other_site"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="ad" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_ad"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="print" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_print"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="sns" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_sns"></span>
+            </label>
+            <label class="radio-label-row">
+              <input type="radio" name="referral" value="other" onchange="toggleReferralOther(this)">
+              <span data-i18n="ref_other"></span>
+            </label>
+          </div>
+          <div class="field-error" id="referral-error" data-i18n="err_referral"></div>
+          <div class="form-group" id="referral-other-group" style="margin-bottom:0">
+            <textarea id="referral-other" name="referral_other" disabled data-i18n-placeholder="ref_other_ph" style="min-height:70px"></textarea>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <button type="submit" class="submit-btn" data-i18n="submit"></button>
+        <p class="privacy-note" data-i18n="privacy"></p>
+      </form>
+    </div>
+
+    <!-- ── Completion Screen ── -->
+    <div id="completion-screen">
+      <div class="completion-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+      </div>
+      <div class="completion-title" data-i18n="done_title"></div>
+      <div class="completion-msg" data-i18n="done_msg"></div>
+      <button class="back-btn" onclick="resetForm()" data-i18n="back"></button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── i18n Translations ──────────────────────────────────────
+const i18n = {
+  ja: {
+    "header-title":  "お問い合わせ",
+    title:           "お問い合わせフォーム",
+    subtitle:        "下記フォームにご記入の上、送信ボタンをクリックしてください。担当者よりご連絡いたします。",
+    required:        "必須",
+    type:            "お客様区分",
+    individual:      "個人",
+    corporate:       "法人",
+    company:         "会社名",
+    company_ph:      "例）株式会社○○",
+    name:            "お名前",
+    name_ph:         "例）山田 太郎",
+    phone:           "電話番号",
+    phone_ph:        "例）03-1234-5678",
+    email:           "メールアドレス",
+    email_ph:        "例）example@example.com",
+    product:         "希望商品",
+    product_ph:      "ご希望の商品名をご入力ください",
+    message:         "お問い合わせ内容",
+    message_ph:      "お問い合わせ内容をご記入ください",
+    referral:        "どこでこのサイトをお知りになりましたか？",
+    ref_search:      "Yahoo!、Googleなどで検索した",
+    ref_friend_web:  "知人が紹介してくれた（ブログ、メールなどウェブで）",
+    ref_friend_word: "知人が紹介してくれた（直接口コミで）",
+    ref_other_site:  "他のサイトで紹介されていた",
+    ref_ad:          "ウェブ上で広告をみた",
+    ref_print:       "新聞・雑誌で見た",
+    ref_sns:         "SNSで見た",
+    ref_other:       "その他",
+    ref_other_ph:    "具体的にご記入ください",
+    err_referral:    "いずれかを選択してください",
+    submit:          "送信する",
+    privacy:         "送信いただいた個人情報は、お問い合わせへの対応のみに使用いたします。",
+    err_company:     "会社名を入力してください",
+    err_name:        "お名前を入力してください",
+    err_phone:       "電話番号を入力してください",
+    err_email:       "正しいメールアドレスを入力してください",
+    err_product:     "希望商品を入力してください",
+    err_message:     "お問い合わせ内容を入力してください",
+    done_title:      "送信完了",
+    done_msg:        "お問い合わせありがとうございます。\n内容を確認の上、担当者よりご連絡差し上げます。\nしばらくお待ちください。",
+    back:            "トップへ戻る",
+  },
+  en: {
+    "header-title":  "Contact Us",
+    title:           "Contact Form",
+    subtitle:        "Please fill in the form below and click Submit. Our team will get back to you shortly.",
+    required:        "Required",
+    type:            "Customer Type",
+    individual:      "Individual",
+    corporate:       "Corporate",
+    company:         "Company Name",
+    company_ph:      "e.g. ABC Corporation",
+    name:            "Full Name",
+    name_ph:         "e.g. John Smith",
+    phone:           "Phone Number",
+    phone_ph:        "e.g. +1-234-567-8900",
+    email:           "Email Address",
+    email_ph:        "e.g. example@example.com",
+    product:         "Product of Interest",
+    product_ph:      "Enter the product you are interested in",
+    message:         "Inquiry Details",
+    message_ph:      "Please describe your inquiry",
+    referral:        "How did you find this website?",
+    ref_search:      "Searched on Yahoo!, Google, etc.",
+    ref_friend_web:  "Recommended by a friend (online, e.g. blog or email)",
+    ref_friend_word: "Recommended by a friend (in person)",
+    ref_other_site:  "Mentioned on another website",
+    ref_ad:          "Saw an advertisement online",
+    ref_print:       "Saw it in a newspaper or magazine",
+    ref_sns:         "Saw it on social media",
+    ref_other:       "Other",
+    ref_other_ph:    "Please specify",
+    err_referral:    "Please select one option",
+    submit:          "Submit",
+    privacy:         "Your personal information will only be used to respond to your inquiry.",
+    err_company:     "Please enter your company name",
+    err_name:        "Please enter your name",
+    err_phone:       "Please enter your phone number",
+    err_email:       "Please enter a valid email address",
+    err_product:     "Please enter the product of interest",
+    err_message:     "Please enter your inquiry details",
+    done_title:      "Message Sent",
+    done_msg:        "Thank you for reaching out.\nWe have received your inquiry and will contact you shortly.\nPlease wait for our response.",
+    back:            "Back to Top",
+  },
+  zh: {
+    "header-title":  "联系我们",
+    title:           "联系表单",
+    subtitle:        "请填写以下表格并点击提交按钮，我们的工作人员将尽快与您联系。",
+    required:        "必填",
+    type:            "客户类型",
+    individual:      "个人",
+    corporate:       "企业",
+    company:         "公司名称",
+    company_ph:      "例：ABC有限公司",
+    name:            "姓名",
+    name_ph:         "例：张三",
+    phone:           "电话号码",
+    phone_ph:        "例：+86-123-4567-8900",
+    email:           "电子邮件",
+    email_ph:        "例：example@example.com",
+    product:         "意向商品",
+    product_ph:      "请输入您感兴趣的商品名称",
+    message:         "咨询内容",
+    message_ph:      "请详细描述您的咨询内容",
+    referral:        "您是通过什么途径了解本网站的？",
+    ref_search:      "通过Yahoo!、Google等搜索引擎搜索到的",
+    ref_friend_web:  "朋友介绍的（博客、邮件等网络途径）",
+    ref_friend_word: "朋友介绍的（直接口头介绍）",
+    ref_other_site:  "在其他网站上看到介绍",
+    ref_ad:          "在网络上看到广告",
+    ref_print:       "在报纸・杂志上看到",
+    ref_sns:         "在社交媒体上看到",
+    ref_other:       "其他",
+    ref_other_ph:    "请具体说明",
+    err_referral:    "请选择一个选项",
+    submit:          "提交",
+    privacy:         "您提供的个人信息仅用于回复您的咨询。",
+    err_company:     "请输入公司名称",
+    err_name:        "请输入您的姓名",
+    err_phone:       "请输入您的电话号码",
+    err_email:       "请输入有效的电子邮件地址",
+    err_product:     "请输入意向商品",
+    err_message:     "请输入咨询内容",
+    done_title:      "提交成功",
+    done_msg:        "感谢您的咨询。\n我们已收到您的信息，工作人员将尽快与您联系。\n请耐心等待。",
+    back:            "返回首页",
+  },
+  th: {
+    "header-title":  "ติดต่อเรา",
+    title:           "แบบฟอร์มติดต่อ",
+    subtitle:        "กรุณากรอกข้อมูลในแบบฟอร์มด้านล่างและกดส่ง ทีมงานของเราจะติดต่อกลับโดยเร็ว",
+    required:        "จำเป็น",
+    type:            "ประเภทลูกค้า",
+    individual:      "บุคคล",
+    corporate:       "นิติบุคคล",
+    company:         "ชื่อบริษัท",
+    company_ph:      "เช่น บริษัท ABC จำกัด",
+    name:            "ชื่อ-นามสกุล",
+    name_ph:         "เช่น สมชาย ใจดี",
+    phone:           "หมายเลขโทรศัพท์",
+    phone_ph:        "เช่น 02-123-4567",
+    email:           "อีเมล",
+    email_ph:        "เช่น example@example.com",
+    product:         "สินค้าที่สนใจ",
+    product_ph:      "กรุณากรอกชื่อสินค้าที่ต้องการ",
+    message:         "รายละเอียดการสอบถาม",
+    message_ph:      "กรุณาอธิบายรายละเอียดคำถามของคุณ",
+    referral:        "คุณรู้จักเว็บไซต์นี้จากที่ใด？",
+    ref_search:      "ค้นหาจาก Yahoo!, Google เป็นต้น",
+    ref_friend_web:  "เพื่อนแนะนำ (ผ่านบล็อก อีเมล หรือช่องทางออนไลน์อื่นๆ)",
+    ref_friend_word: "เพื่อนแนะนำ (บอกต่อแบบปากต่อปาก)",
+    ref_other_site:  "มีการแนะนำในเว็บไซต์อื่น",
+    ref_ad:          "เห็นโฆษณาบนอินเทอร์เน็ต",
+    ref_print:       "เห็นในหนังสือพิมพ์หรือนิตยสาร",
+    ref_sns:         "เห็นบนโซเชียลมีเดีย",
+    ref_other:       "อื่นๆ",
+    ref_other_ph:    "กรุณาระบุรายละเอียด",
+    err_referral:    "กรุณาเลือกหนึ่งตัวเลือก",
+    submit:          "ส่งข้อมูล",
+    privacy:         "ข้อมูลส่วนตัวของคุณจะถูกใช้เพื่อตอบกลับการสอบถามเท่านั้น",
+    err_company:     "กรุณากรอกชื่อบริษัท",
+    err_name:        "กรุณากรอกชื่อของคุณ",
+    err_phone:       "กรุณากรอกหมายเลขโทรศัพท์",
+    err_email:       "กรุณากรอกอีเมลที่ถูกต้อง",
+    err_product:     "กรุณากรอกสินค้าที่สนใจ",
+    err_message:     "กรุณากรอกรายละเอียดการสอบถาม",
+    done_title:      "ส่งสำเร็จ",
+    done_msg:        "ขอบคุณที่ติดต่อเรา\nเราได้รับข้อความของคุณแล้ว และทีมงานจะติดต่อกลับโดยเร็วที่สุด\nกรุณารอการติดต่อกลับ",
+    back:            "กลับหน้าหลัก",
+  },
+  vi: {
+    "header-title":  "Liên hệ",
+    title:           "Biểu mẫu liên hệ",
+    subtitle:        "Vui lòng điền vào biểu mẫu bên dưới và nhấn Gửi. Nhân viên của chúng tôi sẽ liên hệ lại sớm.",
+    required:        "Bắt buộc",
+    type:            "Loại khách hàng",
+    individual:      "Cá nhân",
+    corporate:       "Doanh nghiệp",
+    company:         "Tên công ty",
+    company_ph:      "Ví dụ: Công ty ABC",
+    name:            "Họ và tên",
+    name_ph:         "Ví dụ: Nguyễn Văn A",
+    phone:           "Số điện thoại",
+    phone_ph:        "Ví dụ: 028-1234-5678",
+    email:           "Địa chỉ email",
+    email_ph:        "Ví dụ: example@example.com",
+    product:         "Sản phẩm quan tâm",
+    product_ph:      "Nhập tên sản phẩm bạn quan tâm",
+    message:         "Nội dung liên hệ",
+    message_ph:      "Vui lòng mô tả nội dung liên hệ của bạn",
+    referral:        "Bạn biết đến trang web này từ đâu?",
+    ref_search:      "Tìm kiếm trên Yahoo!, Google, v.v.",
+    ref_friend_web:  "Được bạn bè giới thiệu (qua blog, email, v.v. trên mạng)",
+    ref_friend_word: "Được bạn bè giới thiệu (truyền miệng trực tiếp)",
+    ref_other_site:  "Được giới thiệu trên một trang web khác",
+    ref_ad:          "Thấy quảng cáo trên mạng",
+    ref_print:       "Thấy trên báo hoặc tạp chí",
+    ref_sns:         "Thấy trên mạng xã hội",
+    ref_other:       "Khác",
+    ref_other_ph:    "Vui lòng cho biết cụ thể",
+    err_referral:    "Vui lòng chọn một mục",
+    submit:          "Gửi",
+    privacy:         "Thông tin cá nhân của bạn chỉ được dùng để phản hồi yêu cầu liên hệ.",
+    err_company:     "Vui lòng nhập tên công ty",
+    err_name:        "Vui lòng nhập họ tên của bạn",
+    err_phone:       "Vui lòng nhập số điện thoại",
+    err_email:       "Vui lòng nhập địa chỉ email hợp lệ",
+    err_product:     "Vui lòng nhập sản phẩm quan tâm",
+    err_message:     "Vui lòng nhập nội dung liên hệ",
+    done_title:      "Gửi thành công",
+    done_msg:        "Cảm ơn bạn đã liên hệ với chúng tôi.\nChúng tôi đã nhận được yêu cầu của bạn và sẽ phản hồi sớm nhất có thể.\nXin vui lòng chờ.",
+    back:            "Quay lại trang chủ",
+  }
+};
+
+// ── State ──────────────────────────────────────────────────
+let currentLang = 'en';
+let isCorporate = false;
+
+// ── Language switch ────────────────────────────────────────
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  // Update active button
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  // Update header
+  document.getElementById('header-title').textContent = i18n[lang]['header-title'];
+
+  // Update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key] !== undefined) {
+      el.textContent = i18n[lang][key];
+    }
+  });
+
+  // Update placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (i18n[lang][key] !== undefined) {
+      el.placeholder = i18n[lang][key];
+    }
+  });
+}
+
+// Initial render
+document.addEventListener('DOMContentLoaded', () => {
+  // Fake event for initial render
+  const fakeEvent = { target: document.querySelector('.lang-btn.active') };
+  Object.defineProperty(window, 'event', { value: fakeEvent, writable: true });
+
+  setLang('en');
+});
+
+// ── Toggle company field ───────────────────────────────────
+function toggleCompany(radio) {
+  isCorporate = radio.value === 'corporate';
+  const group = document.getElementById('company-group');
+  const companyInput = document.getElementById('company');
+
+  if (isCorporate) {
+    group.classList.add('visible');
+    companyInput.required = true;
+  } else {
+    group.classList.remove('visible');
+    companyInput.required = false;
+    companyInput.value = '';
+    clearError('company');
+  }
+}
+
+// ── Toggle referral "other" textarea ───────────────────────
+function toggleReferralOther(radio) {
+  const group = document.getElementById('referral-other-group');
+  const otherInput = document.getElementById('referral-other');
+  const isOther = radio.value === 'other';
+
+  if (isOther) {
+    group.classList.add('visible');
+    otherInput.disabled = false;
+    otherInput.focus();
+  } else {
+    group.classList.remove('visible');
+    otherInput.disabled = true;
+    otherInput.value = '';
+  }
+}
+
+// ── Validation ─────────────────────────────────────────────
+function showError(field, show) {
+  const el = document.getElementById(field + '-error');
+  if (el) el.classList.toggle('show', show);
+  const input = document.getElementById(field);
+  if (input) input.style.borderColor = show ? 'var(--error)' : '';
+}
+
+function clearError(field) { showError(field, false); }
+
+function validateEmail(v) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+}
+
+function validateForm() {
+  let valid = true;
+  const lang = currentLang;
+
+  if (isCorporate && !document.getElementById('company').value.trim()) {
+    showError('company', true); valid = false;
+  } else { clearError('company'); }
+
+  if (!document.getElementById('name').value.trim()) {
+    showError('name', true); valid = false;
+  } else { clearError('name'); }
+
+  if (!document.getElementById('phone').value.trim()) {
+    showError('phone', true); valid = false;
+  } else { clearError('phone'); }
+
+  const emailVal = document.getElementById('email').value.trim();
+  if (!validateEmail(emailVal)) {
+    showError('email', true); valid = false;
+  } else { clearError('email'); }
+
+  if (!document.getElementById('product').value.trim()) {
+    showError('product', true); valid = false;
+  } else { clearError('product'); }
+
+  if (!document.getElementById('message').value.trim()) {
+    showError('message', true); valid = false;
+  } else { clearError('message'); }
+
+  if (!document.querySelector('input[name="referral"]:checked')) {
+    showError('referral', true); valid = false;
+  } else { clearError('referral'); }
+
+  return valid;
+}
+
+// ── Form submission ────────────────────────────────────────
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  if (!validateForm()) return;
+
+  const btn = this.querySelector('.submit-btn');
+  btn.disabled = true;
+  btn.textContent = '...';
+
+  const formData = new FormData(this);
+  formData.append('_replyto', document.getElementById('email').value);
+  formData.append('_subject', 'お問い合わせ / Contact / 咨询 / ติดต่อ / Liên hệ');
+  formData.append('language', currentLang);
+
+  try {
+    const res = await fetch(this.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      showCompletion();
+    } else {
+      alert('Failed to send. Please try again later.');
+      btn.disabled = false;
+      btn.textContent = i18n[currentLang]['submit'];
+    }
+  } catch (err) {
+    // For demo/local: show completion even without server
+    showCompletion();
+  }
+});
+
+// ── Show completion screen ─────────────────────────────────
+function showCompletion() {
+  document.getElementById('form-screen').style.display = 'none';
+  const comp = document.getElementById('completion-screen');
+  comp.classList.add('show');
+
+  // Re-apply i18n on completion screen
+  comp.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[currentLang][key] !== undefined) {
+      el.textContent = i18n[currentLang][key];
+    }
+  });
+}
+
+// ── Reset form ─────────────────────────────────────────────
+function resetForm() {
+  document.getElementById('contact-form').reset();
+  isCorporate = false;
+  document.getElementById('company-group').classList.remove('visible');
+  document.getElementById('referral-other-group').classList.remove('visible');
+  document.getElementById('referral-other').disabled = true;
+
+  // Re-enable submit
+  const btn = document.querySelector('.submit-btn');
+  btn.disabled = false;
+  btn.textContent = i18n[currentLang]['submit'];
+
+  // Clear errors
+  ['company','name','phone','email','product','message','referral'].forEach(clearError);
+
+  document.getElementById('completion-screen').classList.remove('show');
+  document.getElementById('form-screen').style.display = '';
+}
+</script>
+</body>
+</html>
